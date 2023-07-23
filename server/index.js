@@ -20,6 +20,8 @@ app.use('/user', userRoutes)
 app.use('/questions', questionRoutes)
 app.use('/answer', answerRoutes)
 
+mongoose.set('strictQuery', true);
+
 const PORT = process.env.PORT || 5000
 
 const CONNECTION_URL = process.env.MONGO_URL
