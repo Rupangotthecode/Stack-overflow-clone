@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import Questions from '../models/Questions.js'
+import { IncreasePoints } from './PointsManip.js'
 
 export const postAnswer = async(req, res) =>{
     const { id : _id} = req.params                        //params are the part of the url after the domain name..... eg: facebook.com*/name="rupan nag"*
@@ -10,7 +11,7 @@ export const postAnswer = async(req, res) =>{
     updateNoOfAnswers(_id, noOfAnswers)
     try {
         const updatedQuestion = await Questions.findByIdAndUpdate( _id, { $addToSet: {'answer': [{ answerBody, userAnswered, userId }]}})
-        console.log(userId)
+        await IncreasePoints(userId, 10)
         return res.status(200).json(updatedQuestion)
     } catch (error) {
         return res.status(400).json(error)
@@ -26,16 +27,20 @@ const updateNoOfAnswers = async(_id, noOfAnswers ) =>{
 }
 
 export const deleteAnswer = async(req,res) =>{
+    
     const {id: _id} = req.params
+    
     const {answerId, noOfAnswers} = req.body
     if(!mongoose.Types.ObjectId.isValid(_id))
     {
+        console.log(req.params)
         return res.status(404).send("Question unavailable...")
     }
     if(!mongoose.Types.ObjectId.isValid(answerId))
     {
         return res.status(404).send("Answer unavailable...")
     }
+    updateNoOfAnswers( _id, noOfAnswers)
     try {
         await Questions.updateOne(
             {_id},

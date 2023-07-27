@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 import Question from '../models/Questions.js'
 import Questions from "../models/Questions.js";
+import { IncreasePoints } from "./PointsManip.js";
 
 export const AskQuestion = async(req,res) =>{
     const postQuestionData = req.body;
-    console.log(req.userId)
     const postQuestion = new Question({...postQuestionData})
     try{
         await postQuestion.save();
+        await IncreasePoints(postQuestionData.userId, 5)
         res.status(200).json("Posted a question successfully")
     }
     catch(error){

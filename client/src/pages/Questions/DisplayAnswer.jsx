@@ -5,13 +5,15 @@ import {useSelector, useDispatch} from 'react-redux'
 import './Questions.css' 
 import moment from 'moment'
 import { deleteAnswer } from '../../actions/question'
+
 const DisplayAnswer = ({question, shareHandler}) => {
 
   const User = useSelector((state)=> state.currentUserReducer)
   const dispatch = useDispatch()
   const id = useParams()
+  console.log(id)
   const handleDelete = (ansId, noOfAnswers) =>{
-    dispatch(deleteAnswer(id, ansId, noOfAnswers-1))
+    dispatch(deleteAnswer({id: id.id, ansId: ansId, noOfAnswers: noOfAnswers-1}))
   }
 
   return (

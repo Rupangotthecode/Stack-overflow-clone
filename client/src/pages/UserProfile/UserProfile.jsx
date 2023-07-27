@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBirthdayCake, faPen } from '@fortawesome/free-solid-svg-icons'
@@ -10,14 +10,22 @@ import Avatar from '../../components/Avatar'
 import EditProfileForm from './EditProfileForm'
 import ProfileBio from './ProfileBio'
 import './UsersProfile.css'
+import { fetchAllUsers } from '../../actions/users'
+
 
 const UserProfile = () => {
-
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(fetchAllUsers())
+    },[dispatch])
+    
     const { id } = useParams()
     const users = useSelector((state) => state.usersReducer)
     const currentProfile = users.filter((user) => user._id === id)[0]
     const currentUser = useSelector((state) => state.currentUserReducer)
     const [Switch, setSwitch] = useState(false)
+
+
     
     return (
         <div className='home-container-1'>
@@ -32,6 +40,7 @@ const UserProfile = () => {
                             <div className="user-name">
                                 <h1>{currentProfile?.name}</h1>
                                 <p><FontAwesomeIcon icon={faBirthdayCake} /> Joined {moment(currentProfile?.joinedOn).fromNow()}</p>
+                                <h2>Points Earned: {currentProfile?.points}</h2>
                             </div>
                         </div>
                         {

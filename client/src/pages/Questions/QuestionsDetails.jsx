@@ -13,6 +13,7 @@ import copy from 'copy-to-clipboard'
 const QuestionsDetails = () => {
 
   const {id} = useParams()
+  console.log(id)
   const questionsList = useSelector(state => state.questionsReducer)
 
     //   var questionsList = [{ 
@@ -85,7 +86,6 @@ const QuestionsDetails = () => {
         alert("Enter Answer to post")
       }
       else{
-        console.log(User.result.name)
         dispatch(postAnswer({id, noOfAnswers: answerLength, answerBody: answer, userPosted: User.result.name, UserId: User.result._id}))
       }
     }
