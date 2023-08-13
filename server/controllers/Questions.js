@@ -1,13 +1,19 @@
 import mongoose from "mongoose";
 import Question from '../models/Questions.js'
 import Questions from "../models/Questions.js";
-import { IncreasePoints } from "./PointsManip.js";
+import Users from "../models/auth.js"
+import { IncreasePoints, CheckContribution, QuestionFinder, HelperChecker,Translator } from "./Utilities.js";
 
 export const AskQuestion = async(req,res) =>{
     const postQuestionData = req.body;
-    const postQuestion = new Question({...postQuestionData})
+    const questionTitleFr = await Translator(postQuestionData.questionTitleEn, 'fr')
+    const questionBodyFr = await Translator(postQuestionData.questionBodyEn, 'fr')
+    const postQuestion = new Question({...postQuestionData, questionBodyFr: questionBodyFr, questionTitleFr: questionTitleFr})
+    
     try{
         await postQuestion.save();
+        await Users.findByIdAndUpdate(postQuestionData.userId, { $addToSet:{'Questions': {questionId: postQuestion._id, questionTitleEn: postQuestion.questionTitleEn, questionTitleFr: postQuestion.questionTitleFr, questionBodyEn: postQuestion.questionBodyEn, questionBodyFr: postQuestion.questionBodyFr, upVotes: 0, downVotes: 0}}})
+        await CheckContribution(postQuestionData.userId)
         await IncreasePoints(postQuestionData.userId, 5)
         res.status(200).json("Posted a question successfully")
     }
@@ -74,7 +80,21 @@ export const voteQuestion = async(req,res) =>{
                 question.downVote = question.downVote.filter((id) => id !== String(userId))
             }
         }
+        if((question.upVote.length - question.downVote.length === 5) && (question.rewards.marker5 === false)){
+            IncreasePoints(question.userId, 20);
+            question.rewards.marker5 =true
+        }
+        if((question.upVote.length - question.downVote.length === 10) && (question.rewards.marker10 === false)){
+            IncreasePoints(question.userId, 40);
+            question.rewards.marker10 =true
+        }
+        if((question.upVote.length - question.downVote.length === 20) && (question.rewards.marker20 === false)){
+            IncreasePoints(question.userId, 100);
+            question.rewards.marker20 =true
+        }
         await Questions.findByIdAndUpdate(_id , question)
+        await QuestionFinder(question.userId, _id, question.upVote.length, question.downVote.length)
+        await HelperChecker(question.userId)
         return res.status(200).send("Voted successfully!")
     } catch (error) {
         return res.status(404).send("Invalid Id...")

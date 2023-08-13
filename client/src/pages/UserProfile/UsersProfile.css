@@ -1,19 +1,45 @@
+.home-container-2{
+    height: 100vh;
+
+}
+
 .user-details-container{
     width: 100%;
     margin-top: 50px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    height: fit-content;
 }
 
 .user-details{
     display: flex;
     align-items: flex-start;
+    width: 100%;
+    flex-direction: row;
+    height: 100%;
 }
 
 .user-name{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap:5px;
+    justify-content: flex-start;
     padding-left: 20px;
+
 }
+
+.user-name-inner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2px;
+    gap: 0px;
+}
+
+
 .user-name p {
     color: #7e7e7e;
 }
@@ -24,6 +50,7 @@
     background-color: white;
     cursor: pointer;
     transition: 0.3s;
+    width: 125px;
 }
 .edit-profile-btn:hover{
     background-color: #f5f9fc;
@@ -77,4 +104,15 @@
     border: none;
     margin-left: 10px;
     cursor: pointer;
+}
+
+.profile-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.profile-button-data{
+    width: 35%;
 }

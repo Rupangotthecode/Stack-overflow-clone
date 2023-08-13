@@ -3,6 +3,7 @@ import { useLocation,useNavigate } from 'react-router-dom'
 import './HomeMainbar.css'
 import QuestionList from './QuestionList'
 import { useSelector } from 'react-redux'
+import {useTranslation} from 'react-i18next'
 
 
 const HomeMainbar = () => {
@@ -76,18 +77,20 @@ const HomeMainbar = () => {
         }
       }
   const location = useLocation()
+
+  const {t} = useTranslation('HomeMainbar')
   return (
     <div className="main-bar">
       <div className="main-bar-header">
-        {location.pathname === '/'? <h1>Top Questions</h1> : <h1>All Questions</h1>}
-        <button onClick={checkAuth} className='ask-btn'>Ask Question</button>
+        {location.pathname === '/'? <h1>{t('top_questions_heading')}</h1> : <h1>{t('top_questions_heading')}</h1>}
+        <button onClick={checkAuth} className='ask-btn'>{t('ask_question_button_text')}</button>
       </div>
       
       <div>
         {questionsList.data ===null?
-        <h1>Loading...</h1>:
+        <h1>{t('loading_message')}</h1>:
         <>
-          <p>{questionsList.data.length} questions</p>
+          <h4>{questionsList.data.length} {t('questions')}</h4>
           <QuestionList questionsList={questionsList.data}/>
         </>
         }

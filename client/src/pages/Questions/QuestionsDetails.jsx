@@ -10,6 +10,7 @@ import './Questions.css'
 import { useState } from 'react'
 import { deleteQuestion, postAnswer, voteQuestion } from '../../actions/question'
 import copy from 'copy-to-clipboard'
+import { useTranslation } from 'react-i18next'
 const QuestionsDetails = () => {
 
   const {id} = useParams()
@@ -75,18 +76,20 @@ const QuestionsDetails = () => {
   const User = useSelector((state) => state.currentUserReducer)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const {t, i18n} = useTranslation('QuestionsDetails')
   const handlePostAns = (e, answerLength ) =>{
+
     e.preventDefault()
     if(User === null){
-      alert("login or signup to answer a question.")
+      alert(t('login_signup_to_answer'))
       navigate("/Auth")
     }
     else{
       if(answer === ''){
-        alert("Enter Answer to post")
+        alert(t('enter_answer_to_post'))
       }
       else{
-        dispatch(postAnswer({id, noOfAnswers: answerLength, answerBody: answer, userPosted: User.result.name, UserId: User.result._id}))
+        dispatch(postAnswer({id, noOfAnswers: answerLength, answerBodyEn: answer, userPosted: User.result.name, UserId: User.result._id}))
       }
     }
   }
@@ -107,8 +110,31 @@ const QuestionsDetails = () => {
   const handleDownvote = () =>{
     dispatch(voteQuestion(id, 'downVote', User.result._id))
   }
-  
 
+  const currentLanguage = i18n.language;
+  
+  const Translator = (question, data) =>{
+    if(data === "Title"){
+      switch(currentLanguage){
+        case 'en':
+          return question.questionTitleEn
+        case 'fr':
+          return question.questionTitleFr
+        default: 
+          return question.questionTitleEn
+      }
+    }
+    else if(data === "Body"){
+      switch(currentLanguage){
+        case 'en':
+          return question.questionBodyEn
+        case 'fr':
+          return question.questionBodyFr
+        default: 
+          return question.questionBodyEn
+      }
+    }
+  }
 
   return (
     <div className="question-details-page">
@@ -120,7 +146,7 @@ const QuestionsDetails = () => {
             questionsList.data.filter(question => question._id === id).map(question =>(
               <div key={question._id}>
                 <section className='question-details-container'>
-                  <h1>{question.questionTitle}</h1>
+                  <h1>{Translator(question, "Title")}</h1>
                   <div className="question-details-container-2">
                     <div className="question-votes">
                       <img src={upvote} alt="upvote" width='18' className='votes-icon' onClick={handleUpvote}/>
@@ -128,7 +154,7 @@ const QuestionsDetails = () => {
                       <img src={downvote} alt="downvote" width='18' className='votes-icon' onClick={handleDownvote}/>
                     </div>
                     <div style={{width: '100%'}}>
-                      <p className='question-body'>{question.questionBody}</p>
+                      <p className='question-body'>{Translator(question, "Body")}</p>
                       <div className="question-details-tags">
                         {
                           question.questionTags.map((tag) =>(
@@ -138,11 +164,11 @@ const QuestionsDetails = () => {
                       </div>
                       <div className="question-actions-user">
                         <div>
-                          <button type='button' onClick={handleShare}>Share</button>
-                          {User?.result?._id === question.userId && <button type='button' onClick={handleDelete}>Delete</button>}
+                          <button type='button' onClick={handleShare}>{t('share')}</button>
+                          {User?.result?._id === question.userId && <button type='button' onClick={handleDelete}>{t('delete')}</button>}
                         </div>
                         <div>
-                          <p>asked {moment(question.askedOn).fromNow()}</p>
+                          <p>{t('asked')} {moment(question.askedOn).fromNow()}</p>
                           <Link to={`/User/${question.userId}`} className='user-link' style={{color:'#0086d8'}}>
                             <Avatar backgroundColor='orange' px='9px' py='9px'>{question.userPosted.charAt(0).toUpperCase()}</Avatar>
                             <div>
@@ -157,25 +183,25 @@ const QuestionsDetails = () => {
                 {
                   question.noOfAnswers !== 0 && (
                     <section>
-                      <h3>{question.noOfAnswers} answers</h3>
+                      <h3>{question.noOfAnswers} {t('answers')}</h3>
                       <DisplayAnswer key={question._id} question={question} shareHandler = {handleShare}/>
                     </section>
                   ) 
                 }
                 <section className="post-ans-container">
-                  <h3>Your Answer</h3>
+                  <h3>{t('your_answer')}</h3>
                   <form onSubmit={(e) => {handlePostAns(e, question.answer.length +1)}}>
                     <textarea name="" id="" cols="30" rows="10" onChange={(e) => setAnswer(e.target.value)}></textarea><br />
-                    <input type="submit" className='post-ans-btn' value='Post Your Answer'/>
+                    <input type="submit" className='post-ans-btn' value={t('post_your_answer')}/>
                   </form>
                   <p>
-                    Browse other Question tagged
+                  {t('browse_tagged_questions')}
                     {
                       question.questionTags.map((tag) => (
                         <Link to='/Tags' key={tag} className='ans-tags'>{tag}</Link>
                       ))
-                    } or 
-                    <Link to='/AskQuestion'  style={{textDecoration: 'none', color: "009dff"}}> ask your own question.</Link>
+                    } {t('or')} 
+                    <Link to='/AskQuestion'  style={{textDecoration: 'none', color: "009dff"}}> {t('ask_own_question')}</Link>
                   </p>
                 </section>
               </div>

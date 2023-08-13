@@ -1,0 +1,24 @@
+{
+  "title": "Le Blog Overflow",
+  "content_1": [
+    "La dette de surveillance s'accumule plus rapidement que les équipes de développement ne peuvent la rembourser.",
+    "Parce que le seul problème pire que la création d'outils internes est de les maintenir..."
+  ],
+  "featured_on_meta": "En vedette sur Meta",
+  "content_2": [
+    "Bataille pour l'étiquette [status-review] : Partie Deux",
+    "Nous avons ajouté une option « Seulement les cookies nécessaires » à la fenêtre de consentement aux cookies.",
+    "Nous avons apporté des modifications à notre Avis de confidentialité pour les Collectifs™.",
+    "La balise [amazon] est en cours d'élimination.",
+    "Lancement du Collectif Microsoft Azure et propositions de changement d'étiquettes.",
+    "Politique temporaire : ChatGPT est banni."
+  ],
+  "hot_meta_posts": "Articles chauds sur Meta",
+  "content_3": [
+    { "count": "38", "text": "Pourquoi le signalement comme spam a été refusé, mais la question marquée comme spam ?" },
+    { "count": "20", "text": "Quelle est la meilleure action à entreprendre lorsqu'un utilisateur a suffisamment de réputation pour..." },
+    { "count": "14", "text": "Un lien vers la page d'aide « Comment poser une question » est-il un commentaire utile ?" }
+  ]
+}
+
+  

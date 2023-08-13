@@ -1,14 +1,19 @@
 import React from 'react'
 import './Auth.css'
+import { useTranslation } from 'react-i18next'
+import i18next from 'i18next'
 const Aboutauth = () => {
+
+  const {t} = useTranslation("Aboutauth");
+
   return (
     <div className='auth-container-1'>
-      <h1>Join the Stack Overflow community</h1>
-      <p>Unlock new privileges like voting and commenting</p>
-      <p>Save your favorite tags, filters, and jobs</p>
-      <p>Earn reputation and badges</p>
-      <p style={{fontSize:'13px', color:'#666767'}}>Collaborate and share knowledge with a private group for FREE.</p>
-      <p style={{fontSize:'13px', color:'#007ac6'}}>Get Stack Overflow for Teams free for up to 50 users.</p>
+      <h1>{t('title')}</h1>
+      <p>{t('points')}</p>
+      <p>{t('tags_filters_jobs')}</p>
+      <p>{t('reputation_badges')}</p>
+      <p style={{fontSize:'13px', color:'#666767'}}>{t('private_group')}</p>
+      <p style={{fontSize:'13px', color:'#007ac6'}}>{t('teams_free')}</p>
     </div>
   )
 }

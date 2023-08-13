@@ -3,9 +3,16 @@
     background-color: #f1f2f3;
 }
 
+.aq-padder{
+    padding: 5%;
+    padding-top: 0%;
+}
+
 .ask-ques-container{
     margin: auto;
     max-width: 1200px;
+    min-width: 300px;
+    
 }
 
 .ask-ques-container h1{
@@ -13,8 +20,10 @@
 }
 .ask-ques-container form .ask-form-container{
     padding: 20px;
+    overflow-y: scroll;
     background-color: white;
     border-radius: 3px;
+    max-height: 500px;
     box-shadow: 0 10px 25px rgb(0 0 0 / 5%),
      0 20px 48px rgb(0 0 0 / 5%),
      0 1px 4px rgb(0 0 0 / 10%);

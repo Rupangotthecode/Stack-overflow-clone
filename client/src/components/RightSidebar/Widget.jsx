@@ -3,60 +3,65 @@ import './RightSidebar.css'
 import comment from '../../assets/comment-alt-solid.svg'
 import pen from '../../assets/pen-solid.svg'
 import blackLogo from '../../assets/blacklogo.svg'
+import {useTranslation} from 'react-i18next'
+
 const Widget = () => {
+  
+  const {t} = useTranslation("Widget")
+  
   return (
     <div className='widget'>
-        <h4>The Overflow Blog</h4>
+        <h4>{t('title')}</h4>
         <div className="right-sidebar-div-1">
           <div className="right-sidebar-div-2">
             <img src={pen} alt="pen" width='18px'/>
-            <p>Monitoring debt builds up faster than software teams can pay it off</p>
+            <p>{t('content_1.0')}</p>
           </div>
           <div className="right-sidebar-div-2">
             <img src={pen} alt="pen" width='18px'/>
-            <p>Because the only thing worse than building internal tools is maintaining them...</p>
+            <p>{t('content_1.1')}</p>
           </div>
         </div>
-        <h4>Featured on Meta</h4>
+        <h4>{t('featured_on_meta')}</h4>
         <div className="right-sidebar-div-1">
           <div className="right-sidebar-div-2">
             <img src={comment} alt="pen" width='18px'/>
-            <p>Ticket smash for [status-review] tag: Part Deux</p>
+            <p>{t('content_2.0')}</p>
           </div>
           <div className="right-sidebar-div-2">
             <img src={comment} alt="pen" width='18px'/>
-            <p>We've added a "Necessary cookies only" option to the cookie consent popup</p>
+            <p>{t('content_2.1')}</p>
           </div>
           <div className="right-sidebar-div-2">
             <img src={blackLogo} alt="pen" width='18px'/>
-            <p>We've made changes to our Privacy Notice for Collectives™</p>
+            <p>{t('content_2.2')}</p>
           </div>
           <div className="right-sidebar-div-2">
             <img src={blackLogo} alt="pen" width='18px'/>
-            <p>The [amazon] tag is being burninated</p>
+            <p>{t('content_2.3')}</p>
           </div>
           <div className="right-sidebar-div-2">
             <img src={blackLogo} alt="pen" width='18px'/>
-            <p>Microsoft Azure Collective launch and proposed tag changes</p>
+            <p>{t('content_2.4')}</p>
           </div>
           <div className="right-sidebar-div-2">
             <img src={blackLogo} alt="pen" width='18px'/>
-            <p>Temporary policy: ChatGPT is banned</p>
+            <p>{t('content_2.5')}</p>
           </div>
         </div>
-        <h4>Hot Meta Posts</h4>
+        <h4>{t('hot_meta_posts')}</h4>
         <div className="right-sidebar-div-1">
           <div className="right-sidebar-div-2">
             <p>38</p>
-            <p>Why was the spam flag declined, yet the question marked as spam?</p>
+            <p>{t('content_3.0.text')}</p>
           </div>
           <div className="right-sidebar-div-2">
             <p>20</p>
-            <p>What is the best course of action when a user has high enough rep to...</p>
+            <p>{t('content_3.1.text')}</p>
           </div>
           <div className="right-sidebar-div-2">
             <p>14</p>
-            <p>Is a link to the "How to ask" help page a useful comment?</p>
+            <p>{t('content_3.2.text')}</p>
           </div>
         </div>
     </div>

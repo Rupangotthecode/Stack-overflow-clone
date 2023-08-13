@@ -1,0 +1,10 @@
+{
+  "title": "Poser une question publique",
+  "description": "Soyez précis et imaginez que vous posez une question à une autre personne.\nPar exemple : Existe-t-il une fonction R pour trouver l'index d'un élément dans un vecteur ?",
+  "question_example": "Existe-t-il une fonction R pour trouver l'index d'un élément dans un vecteur ?",
+  "information_needed": "Incluez toutes les informations dont quelqu'un aurait besoin pour répondre à votre question.",
+  "tags_description": "Ajoutez jusqu'à 5 tags pour décrire le sujet de votre question.",
+  "review_question": "Relisez votre question"
+}
+
+  

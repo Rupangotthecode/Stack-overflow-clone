@@ -1,0 +1,23 @@
+{
+    "title": "The Overflow Blog",
+    "content_1": [
+      "Monitoring debt builds up faster than software teams can pay it off",
+      "Because the only thing worse than building internal tools is maintaining them..."
+    ],
+    "featured_on_meta": "Featured on Meta",
+    "content_2": [
+      "Ticket smash for [status-review] tag: Part Deux",
+      "We've added a \"Necessary cookies only\" option to the cookie consent popup",
+      "We've made changes to our Privacy Notice for Collectives™",
+      "The [amazon] tag is being burninated",
+      "Microsoft Azure Collective launch and proposed tag changes",
+      "Temporary policy: ChatGPT is banned"
+    ],
+    "hot_meta_posts": "Hot Meta Posts",
+    "content_3": [
+      { "count": "38", "text": "Why was the spam flag declined, yet the question marked as spam?" },
+      { "count": "20", "text": "What is the best course of action when a user has high enough rep to..." },
+      { "count": "14", "text": "Is a link to the \"How to ask\" help page a useful comment?" }
+    ]
+  }
+  

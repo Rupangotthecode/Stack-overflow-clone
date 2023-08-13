@@ -1,0 +1,58 @@
+{
+  
+  "tag_description_1": "Un tag est un mot-clé ou une étiquette qui catégorise votre question avec d'autres questions similaires.",
+  "tag_description_2": "Utiliser les bons tags facilite la recherche et la réponse à votre question par d'autres utilisateurs.",    
+  "Tags":[
+    {
+      "id": 1,
+      "tagName": "javascript",
+      "tagDesc": "Pour les questions concernant la programmation en ECMAScript (JavaScript/JS) et ses divers dialectes/implementations (à l'exclusion d'ActionScript). Veuillez inclure toutes les balises pertinentes dans votre question."
+    },
+    {
+      "id": 2,
+      "tagName": "python",
+      "tagDesc": "Python est un langage de programmation multi-paradigme, à typage dynamique, polyvalent. Il est conçu pour être rapide à apprendre, comprendre et utiliser, et impose une syntaxe propre et uniforme."
+    },
+    {
+      "id": 3,
+      "tagName": "c#",
+      "tagDesc": "C# (prononcé 'see sharp') est un langage de programmation multi-paradigme à haut niveau et à typage statique développé par Microsoft."
+    },
+    {
+      "id": 4,
+      "tagName": "java",
+      "tagDesc": "Java est un langage de programmation orienté objet de haut niveau. Utilisez cette balise lorsque vous rencontrez des problèmes d'utilisation ou de compréhension du langage lui-même."
+    },
+    {
+      "id": 5,
+      "tagName": "php",
+      "tagDesc": "PHP est un langage de script largement utilisé, open source, multi-paradigme, à typage dynamique et interprété, initialement conçu pour le développement web côté serveur."
+    },
+    {
+      "id": 6,
+      "tagName": "html",
+      "tagDesc": "HTML (HyperText Markup Language) est le langage de balisage pour la création de pages web et d'autres informations à afficher dans un navigateur web."
+    },
+    {
+      "id": 7,
+      "tagName": "android",
+      "tagDesc": "Android est le système d'exploitation mobile de Google, utilisé pour la programmation ou le développement d'appareils numériques (Smartphones, Tablettes, Automobiles, Télévisions, Wear, Glass, IoT)."
+    },
+    {
+      "id": 8,
+      "tagName": "css",
+      "tagDesc": "CSS est un langage de feuille de style de représentation utilisé pour décrire l'apparence et la mise en forme de documents HTML, XML et éléments SVG, y compris les couleurs, la mise en page, les polices et les animations."
+    },
+    {
+      "id": 9,
+      "tagName": "Reactjs",
+      "tagDesc": "React est une bibliothèque JavaScript pour la création d'interfaces utilisateur. Elle utilise un paradigme déclaratif basé sur des composants et vise à être à la fois efficace et flexible."
+    },
+    {
+      "id": 10,
+      "tagName": "node.js",
+      "tagDesc": "Node.js est une plateforme d'exécution basée sur des événements, non bloquante et asynchrone qui utilise le moteur JavaScript V8 de Google et la bibliothèque libuv."
+    }
+  ]    
+}
+  
