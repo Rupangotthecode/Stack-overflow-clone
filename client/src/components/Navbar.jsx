@@ -20,9 +20,9 @@ import {Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverCloseButto
 const Navbar=()=>{
 
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1023px)'})
-    const isBigTablet = useMediaQuery({ query: '(max-width: 1023px)' })
-    const isSmallTablet = useMediaQuery({ query: '(max-width: 767px)' })
-    const isBigMobile = useMediaQuery({ query: '(max-width: 592px)' })
+    const isBigTablet = useMediaQuery({ minWidth: 767, maxWidth: 1023})
+    const isSmallTablet = useMediaQuery({ minWidth: 592, maxWidth: 767})
+    const isBigMobile = useMediaQuery( { minWidth: 500, maxWidth: 592} )
     const isSmallMobile = useMediaQuery({ query: '(max-width: 500px)' })
         
     const {t} = useTranslation("Navbar")
@@ -95,7 +95,7 @@ const Navbar=()=>{
             <nav className='main-nav'>
                 <div className="navbar">
                     <Link to='/' className='nav-item nav-logo'>
-                        <Image src={smallLogo} width='35px' height='45px' alt='logo'/>
+                        <Image src={smallLogo} width='35px' height='35px' alt='logo'/>
                     </Link>
                     <Link to='/' className='nav-item lappy-nav-btn'>{t("products")}</Link>
                     <Link to='/' className='nav-item lappy-nav-btn'>{t("for_teams")}</Link>
@@ -127,7 +127,7 @@ const Navbar=()=>{
             <nav className='main-nav'>
                 <div className="navbar">
                     <Link to='/' className='nav-item nav-logo'>
-                        <Image src={smallLogo} width='35px' height='45px' alt='logo'/>
+                        <Image src={smallLogo} width='35px' height='35px' alt='logo'/>
                     </Link>
                     <Link to='/' className='nav-item lappy-nav-btn'>{t("products")}</Link>
                 
@@ -158,7 +158,7 @@ const Navbar=()=>{
             <nav className='main-nav'>
                 <div className="navbar">
                     <Link to='/' className='nav-item nav-logo'>
-                        <Image src={smallLogo} width='35px' height='45px' alt='logo'/>
+                        <Image src={smallLogo} width='35px' height='35px' alt='logo'/>
                     </Link>
                     <Link to='/' className='nav-item lappy-nav-btn'>{t("products")}</Link>
                 
@@ -189,7 +189,7 @@ const Navbar=()=>{
             <nav className='main-nav'>
                 <div className="navbar">
                     <Link to='/' className='nav-item nav-logo'>
-                        <Image src={smallLogo} width='35px' height='45px' alt='logo'/>
+                        <Image src={smallLogo} width='35px' height='35px' alt='logo'/>
                     </Link>
                     <Link to='/' className='nav-item lappy-nav-btn'>{t("products")}</Link>
                     <Popover>

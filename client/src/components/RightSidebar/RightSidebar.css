@@ -1,6 +1,5 @@
 .right-sidebar{
-    float: right;
-    width: 300px;
+    width: 400px;
     margin: 40px 0px 15px 24px;
     font-size: 15px;
 }
@@ -27,7 +26,7 @@
 .right-sidebar-div-1 .right-sidebar-div-2{
     display:flex;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 .right-sidebar-div-1 .right-sidebar-div-2 p{
@@ -65,3 +64,15 @@
     border-radius: 2px;
     font-size: 14px;
 } 
+
+.smob-right-sidebar{
+    width: 100%;
+    min-width: fit-content;
+    flex-wrap: wrap;
+    margin: 0;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+}

@@ -12,7 +12,7 @@ i18n
     fallbackLng: 'en',
     debug: true,
     // Options for language detector
-    lng: 'fr',
+    lng: 'en',
     react: { useSuspense: true },
     backend: {
       loadPath: 'http://localhost:5000/locales/{{lng}}/{{ns}}.json',

@@ -1,8 +1,18 @@
-.home-container-2{
-    height: 100vh;
-
+.profile-home-container-1{
+    min-height: 100vh;
+    max-width: 1250px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0% auto;
 }
 
+.profile-home-container-2{
+    max-width: 1100px;
+    width: calc(100% - 164px);
+    padding: 24px;
+    box-sizing: border-box;
+}
 .user-details-container{
     width: 100%;
     margin-top: 50px;
@@ -115,4 +125,84 @@
 
 .profile-button-data{
     width: 35%;
+}
+
+.mob-profile-home-container-1{
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0% auto;
+}
+
+.mob-profile-home-container-2{
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mob-user-details-container{
+    border: 2px solid black;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: fit-content;
+    padding: 5%;
+    border-radius: 20px;
+}
+
+.mob-user-details{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+.mob-profile-button-data{
+    width: fit-content;
+
+    position:absolute;
+    margin-right: 1%;
+}
+
+.mob-user-name{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap:5px;
+    justify-content: flex-start;
+}
+
+.mob-user-name-inner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    gap: 0px;
+    width: 100%;
+}
+
+.mob-edit-profile-btn{
+    border-radius: 100px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 10px;
+    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.321);;
+}
+
+.mob-edit-profile-form label input, .mob-edit-profile-form label textarea{
+    padding: 5px;
+    margin-bottom: 20px;
+    border: solid 1px #dbd9d9;
+    width: 100%;
 }

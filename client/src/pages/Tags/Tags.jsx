@@ -3,9 +3,13 @@ import React from 'react'
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import TagsList from './TagsList'
 import { useTranslation } from 'react-i18next'
+import { useMediaQuery } from 'react-responsive'
 import './Tags.css'
 
 const Tags = () => {
+
+    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1045px)'})
+    const isMobile = useMediaQuery({query: '(max-width: 1045px)'})
 
     const {t} = useTranslation('Tags')
 
@@ -52,21 +56,42 @@ const Tags = () => {
     }] 
 
     return (
-        <div className='home-container-1'>
-            <LeftSidebar />
-            <div className="home-container-2">
-                <h1 className='tags-h1'>Tags</h1>
-                <p className='tags-p'>{t('tag_description_1')}</p>
-                <p className='tags-p'>{t('tag_description_2')}</p>
-                <div className='tags-list-container'>
-                    {
-                        tagsList.map((tag) => (
-                            <TagsList tag={tag} key={tagsList.id}/>
-                        ))
-                    }
+        <>
+        {isDesktopOrLaptop && 
+            <div className='tags-home-container-1'>
+                <LeftSidebar />
+                <div className="tags-home-container-2">
+                    <h1 className='tags-h1'>Tags</h1>
+                    <p className='tags-p'>{t('tag_description_1')}</p>
+                    <p className='tags-p'>{t('tag_description_2')}</p>
+                    <div className='tags-list-container'>
+                        {
+                            tagsList.map((tag) => (
+                                <TagsList tag={tag} key={tagsList.id}/>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+        {isMobile && 
+            <div className='mob-tags-home-container-1'>
+                <LeftSidebar />
+                <div className="mob-tags-home-container-2">
+                    <h1 className='tags-h1'>Tags</h1>
+                    <p className='tags-p'>{t('tag_description_1')}</p>
+                    <p className='tags-p'>{t('tag_description_2')}</p>
+                    <div className='tags-list-container'>
+                        {
+                            tagsList.map((tag) => (
+                                <TagsList tag={tag} key={tagsList.id}/>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        </>
     )
 }
 
