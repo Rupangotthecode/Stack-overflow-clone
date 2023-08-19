@@ -41,13 +41,7 @@ const Navbar=()=>{
         localStorage.removeItem("Profile")
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))))
         navigate("/Auth")
-    })
-    
-    
-
-
-
-
+    },[dispatch,navigate])
 
     useEffect(() => {    // token based auth. token dissolves after 1 hr so we check if the local storage has a jwt or not. We proceed only if there is one.
       const token = User?.token;
