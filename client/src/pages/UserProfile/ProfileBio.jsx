@@ -1,5 +1,5 @@
 import React from 'react'
-import Badges from './Badges'
+
 import { useTranslation } from 'react-i18next'
 
 const ProfileBio = ({currentProfile}) => {

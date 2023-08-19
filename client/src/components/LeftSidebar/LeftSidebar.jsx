@@ -9,14 +9,12 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
   Button,
-  Input
 } from '@chakra-ui/react'
 
 const LeftSidebar = () => {

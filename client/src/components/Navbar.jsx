@@ -33,7 +33,7 @@ const Navbar=()=>{
     useEffect(() => {
         
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))))
-    },[dispatch])
+    },[dispatch,])
 
     var User = useSelector((state)=> state.currentUserReducer)
 
@@ -53,7 +53,7 @@ const Navbar=()=>{
             handleLogout()
         }
       }
-    }, [dispatch])
+    }, [dispatch,handleLogout, User.token ])
     
 
     return (
