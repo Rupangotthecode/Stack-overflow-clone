@@ -15,7 +15,7 @@ import { useMediaQuery } from 'react-responsive'
 import smallLogo from '../assets/small_logo.png'
 import i18n from '../i18next'
 import {Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverCloseButton, PopoverBody} from '@chakra-ui/react'
-
+import { useCallback } from 'react'
 
 const Navbar=()=>{
 
@@ -37,11 +37,15 @@ const Navbar=()=>{
 
     var User = useSelector((state)=> state.currentUserReducer)
 
-    const handleLogout = () =>{
+    const handleLogout = useCallback(() =>{
         localStorage.removeItem("Profile")
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))))
         navigate("/Auth")
-    }
+    })
+    
+    
+
+
 
 
 
