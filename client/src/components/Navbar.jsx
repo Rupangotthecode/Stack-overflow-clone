@@ -51,7 +51,7 @@ const Navbar=()=>{
             handleLogout()
         }
       }
-    }, [dispatch,handleLogout, User.token ])
+    }, [dispatch,handleLogout,User ])
     
 
     return (
