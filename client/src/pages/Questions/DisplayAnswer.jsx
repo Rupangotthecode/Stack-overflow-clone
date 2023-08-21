@@ -23,6 +23,8 @@ const DisplayAnswer = ({question, shareHandler}) => {
           return ans.answerBodyEn
         case 'fr':
           return ans.answerBodyFr
+          case 'hi':
+            return ans.answerBodyHi
         default: 
           return ans.answerBodyEn
       }
