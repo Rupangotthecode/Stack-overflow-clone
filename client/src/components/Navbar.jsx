@@ -110,6 +110,7 @@ const Navbar=()=>{
                 <MenuList>
                     <MenuItem onClick={()=>i18n.changeLanguage('fr')}>Français</MenuItem>
                     <MenuItem onClick={()=>i18n.changeLanguage('en')}>English</MenuItem>
+                    <MenuItem onClick={()=>i18n.changeLanguage('hi')}>हिंदी</MenuItem>
                 </MenuList>
             </Menu>
                 { User === null ?
@@ -141,6 +142,7 @@ const Navbar=()=>{
                 <MenuList>
                     <MenuItem onClick={()=>i18n.changeLanguage('fr')}>Français</MenuItem>
                     <MenuItem onClick={()=>i18n.changeLanguage('en')}>English</MenuItem>
+                    <MenuItem onClick={()=>i18n.changeLanguage('hi')}>हिंदी</MenuItem>
                 </MenuList>
             </Menu>
                 { User === null ?
@@ -172,6 +174,7 @@ const Navbar=()=>{
                 <MenuList>
                     <MenuItem onClick={()=>i18n.changeLanguage('fr')}>Français</MenuItem>
                     <MenuItem onClick={()=>i18n.changeLanguage('en')}>English</MenuItem>
+                    <MenuItem onClick={()=>i18n.changeLanguage('hi')}>हिंदी</MenuItem>
                 </MenuList>
             </Menu>
                 { User === null ?
@@ -208,6 +211,7 @@ const Navbar=()=>{
                 <MenuList>
                     <MenuItem onClick={()=>i18n.changeLanguage('fr')}>Français</MenuItem>
                     <MenuItem onClick={()=>i18n.changeLanguage('en')}>English</MenuItem>
+                    <MenuItem onClick={()=>i18n.changeLanguage('hi')}>हिंदी</MenuItem>
                 </MenuList>
             </Menu>
                 { User === null ?
