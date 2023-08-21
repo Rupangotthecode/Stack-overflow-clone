@@ -124,6 +124,8 @@ const QuestionsDetails = () => {
           return question.questionTitleEn
         case 'fr':
           return question.questionTitleFr
+        case 'hi':
+          return question.questionTitleHi
         default: 
           return question.questionTitleEn
       }
@@ -134,6 +136,8 @@ const QuestionsDetails = () => {
           return question.questionBodyEn
         case 'fr':
           return question.questionBodyFr
+        case 'hi':
+          return question.questionBodyHi
         default: 
           return question.questionBodyEn
       }
