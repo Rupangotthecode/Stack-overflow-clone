@@ -14,7 +14,8 @@ export const postAnswer = async(req, res) =>{
     try {
         console.log(answerBodyEn)
         const answerBodyFr = await Translator(answerBodyEn, 'fr')
-        const updatedQuestion = await Questions.findByIdAndUpdate( _id, { $addToSet: {'answer': [{ answerBodyEn, answerBodyFr, userAnswered, userId }]}})
+        const answerBodyHi = await Translator(answerBodyEn, 'hi')
+        const updatedQuestion = await Questions.findByIdAndUpdate( _id, { $addToSet: {'answer': [{ answerBodyEn, answerBodyFr,answerBodyHi, userAnswered, userId }]}})
         await Users.findByIdAndUpdate(userId, {$inc: { noOfAnswers: 1}})
         await IncreasePoints(userId, 10)
         await CheckContribution(userId)

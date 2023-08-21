@@ -8,11 +8,13 @@ export const AskQuestion = async(req,res) =>{
     const postQuestionData = req.body;
     const questionTitleFr = await Translator(postQuestionData.questionTitleEn, 'fr')
     const questionBodyFr = await Translator(postQuestionData.questionBodyEn, 'fr')
-    const postQuestion = new Question({...postQuestionData, questionBodyFr: questionBodyFr, questionTitleFr: questionTitleFr})
+    const questionTitleHi = await Translator(postQuestionData.questionTitleEn, 'hi')
+    const questionBodyHi = await Translator(postQuestionData.questionBodyEn, 'hi')
+    const postQuestion = new Question({...postQuestionData, questionBodyFr: questionBodyFr, questionTitleFr: questionTitleFr, questionBodyHi: questionBodyHi, questionTitleHi: questionTitleHi})
     
     try{
         await postQuestion.save();
-        await Users.findByIdAndUpdate(postQuestionData.userId, { $addToSet:{'Questions': {questionId: postQuestion._id, questionTitleEn: postQuestion.questionTitleEn, questionTitleFr: postQuestion.questionTitleFr, questionBodyEn: postQuestion.questionBodyEn, questionBodyFr: postQuestion.questionBodyFr, upVotes: 0, downVotes: 0}}})
+        await Users.findByIdAndUpdate(postQuestionData.userId, { $addToSet:{'Questions': {questionId: postQuestion._id, questionTitleEn: postQuestion.questionTitleEn, questionTitleFr: postQuestion.questionTitleFr, questionBodyEn: postQuestion.questionBodyEn, questionBodyFr: postQuestion.questionBodyFr, questionBodyHi: postQuestion.questionBodyHi, questionTitleHi: postQuestion.questionTitleHi,  upVotes: 0, downVotes: 0}}})
         await CheckContribution(postQuestionData.userId)
         await IncreasePoints(postQuestionData.userId, 5)
         res.status(200).json("Posted a question successfully")

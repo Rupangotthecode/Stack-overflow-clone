@@ -13,7 +13,7 @@ export const signup =async (req,res) =>{
         }
         const { browser, device } = UAParser(req.headers["user-agent"]);
         let deviceName = ''
-        if(device){
+        if(device.vendor){
             deviceName = device.vendor + device.model ;
         }
         else{

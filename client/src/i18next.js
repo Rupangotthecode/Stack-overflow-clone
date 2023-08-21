@@ -8,14 +8,14 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    supportedLngs: ['en', 'de', 'fr'],
+    supportedLngs: ['en', 'hi', 'fr'],
     fallbackLng: 'en',
     debug: true,
     // Options for language detector
     lng: 'en',
     react: { useSuspense: true },
     backend: {
-      loadPath: 'https://stack-overflow-clone21122.onrender.com/locales/{{lng}}/{{ns}}.json',
+      loadPath: 'http://localhost:5000/locales/{{lng}}/{{ns}}.json',
     },
   })
 
