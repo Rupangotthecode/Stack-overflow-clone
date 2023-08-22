@@ -15,7 +15,7 @@ i18n
     lng: 'en',
     react: { useSuspense: true },
     backend: {
-      loadPath: 'http://localhost:5000/locales/{{lng}}/{{ns}}.json',
+      loadPath: 'https://stack-overflow-clone21122.onrender.com/locales/{{lng}}/{{ns}}.json',
     },
   })
 
