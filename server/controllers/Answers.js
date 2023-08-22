@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import Questions from '../models/Questions.js'
 import Users from '../models/auth.js'
-import { IncreasePoints, CheckContribution, Translator } from './Utilities.js'
+import { IncreasePoints, CheckContribution, Translator, TutorChecker } from './Utilities.js'
 
 export const postAnswer = async(req, res) =>{
     const { id : _id} = req.params                        //params are the part of the url after the domain name..... eg: facebook.com*/name="rupan nag"*
@@ -12,13 +12,13 @@ export const postAnswer = async(req, res) =>{
     }
     updateNoOfAnswers(_id, noOfAnswers)
     try {
-        console.log(answerBodyEn)
         const answerBodyFr = await Translator(answerBodyEn, 'fr')
         const answerBodyHi = await Translator(answerBodyEn, 'hi')
         const updatedQuestion = await Questions.findByIdAndUpdate( _id, { $addToSet: {'answer': [{ answerBodyEn, answerBodyFr,answerBodyHi, userAnswered, userId }]}})
         await Users.findByIdAndUpdate(userId, {$inc: { noOfAnswers: 1}})
         await IncreasePoints(userId, 10)
         await CheckContribution(userId)
+        await TutorChecker(userId)
         return res.status(200).json(updatedQuestion)
     } catch (error) {
         return res.status(400).json(error)

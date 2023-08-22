@@ -11,7 +11,6 @@ export const IncreasePoints = async(id, points) =>{
         
         await Users.findByIdAndUpdate( id, { $inc: {points: points}} );
         
-        console.log("hello, Im here")
     } catch (error) {
         console.log(error)
     }
@@ -62,6 +61,15 @@ export const HelperChecker = async(userId) =>{
         await Users.findByIdAndUpdate(userId, user)
         await IncreasePoints(userId, 500)
     }   
+}
+
+export const TutorChecker = async(userId) =>{
+    const user = await Users.findById(userId);
+    if(user.noOfAnswers >= 5 && user.badges.indexOf("Tutor")=== -1){
+        await user.badges.push('Tutor')
+        await Users.findByIdAndUpdate(userId, user)
+        await IncreasePoints(userId, 200)
+    }
 }
 
 export const Translator = async(data, to) =>{
